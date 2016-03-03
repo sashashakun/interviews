@@ -8,16 +8,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Nitive/interviews.git"
+    "url": "git+https://github.com/hexlet-volunteers/interviews.git"
   },
   "keywords": [
     "hexlet",
     "interviews"
   ],
-  "author": "Maxim Samoilov <nitive@icloud.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Nitive/interviews/issues"
+    "url": "https://github.com/hexlet-volunteers/interviews/issues"
   },
-  "homepage": "https://github.com/Nitive/interviews#readme"
+  "homepage": "https://github.com/hexlet-volunteers/interviews#readme"
 }
