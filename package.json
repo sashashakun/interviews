@@ -4,7 +4,7 @@
   "description": "",
   "scripts": {
     "lint": "eslint server tests",
-    "start": "nodemon server/server",
+    "start": "nodemon server/server.js",
     "test": "mocha --compilers js:babel-register tests/",
     "posttest": "npm run lint"
   },
