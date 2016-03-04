@@ -1,0 +1,4 @@
+# specific rules for tests
+
+rules:
+  func-names: 0
