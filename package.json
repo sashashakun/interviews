@@ -1,0 +1,22 @@
+{
+  "name": "interviews",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hexlet-volunteers/interviews.git"
+  },
+  "keywords": [
+    "hexlet",
+    "interviews"
+  ],
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/hexlet-volunteers/interviews/issues"
+  },
+  "homepage": "https://github.com/hexlet-volunteers/interviews#readme"
+}
