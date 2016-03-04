@@ -5,7 +5,7 @@
   "scripts": {
     "lint": "eslint server/*.js",
     "start": "nodemon server/server",
-    "test": "exit 0",
+    "test": "mocha --compilers js:babel-register tests/",
     "posttest": "npm run lint"
   },
   "repository": {
@@ -28,6 +28,8 @@
     "morgan": "^1.7.0"
   },
   "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^2.4.5",
     "nodemon": "^1.9.1"
   }
 }
