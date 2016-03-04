@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "description": "",
   "scripts": {
-    "lint": "eslint server/*.js",
+    "lint": "eslint server tests",
     "start": "nodemon server/server",
     "test": "mocha --compilers js:babel-register tests/",
     "posttest": "npm run lint"
@@ -30,6 +30,7 @@
   "devDependencies": {
     "chai": "^3.5.0",
     "mocha": "^2.4.5",
-    "nodemon": "^1.9.1"
+    "nodemon": "^1.9.1",
+    "supertest": "^1.2.0"
   }
 }
