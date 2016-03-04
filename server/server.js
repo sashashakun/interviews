@@ -3,11 +3,11 @@ const morgan = require('morgan');
 
 
 const app = express();
-
+app.set('view engine', 'jade');
 app.use(morgan('dev'));
 
 app.get('/', (req, res) => {
-  res.send('hello');
+  res.render('index');
 });
 
 
