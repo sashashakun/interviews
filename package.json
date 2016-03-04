@@ -4,7 +4,7 @@
   "description": "",
   "scripts": {
     "lint": "eslint server/*.js",
-    "start": "nodemon server/",
+    "start": "nodemon server/server",
     "test": "exit 0",
     "posttest": "npm run lint"
   },
