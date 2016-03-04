@@ -22,12 +22,12 @@
   },
   "homepage": "https://github.com/hexlet-volunteers/interviews#readme",
   "dependencies": {
-    "eslint": "^2.2.0",
-    "eslint-config-airbnb": "^6.0.2",
     "express": "^4.13.4",
     "morgan": "^1.7.0"
   },
   "devDependencies": {
+    "eslint": "^2.2.0",
+    "eslint-config-airbnb": "^6.0.2",
     "chai": "^3.5.0",
     "mocha": "^2.4.5",
     "nodemon": "^1.9.1",
