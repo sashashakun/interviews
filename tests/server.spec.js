@@ -13,4 +13,10 @@ describe('basic', () => {
       .get('/not-found')
       .expect(404, done);
   });
+
+  it('should return styles', done => {
+    request(server)
+      .get('/css/styles.css')
+      .expect(200, done);
+  });
 });

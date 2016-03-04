@@ -1,0 +1,16 @@
+.container {
+  display: flex;
+
+  .left-panel {
+    flex: 1;
+  }
+
+  .center-panel {
+    flex: 1;
+    text-align: center;
+  }
+
+  .right-panel {
+    flex: 1;
+  }
+}
