@@ -2,10 +2,10 @@
   "name": "interviews",
   "version": "0.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
-    "lint": "eslint *.js",
-    "test": "eslint .",
+    "lint": "eslint server tests",
+    "start": "nodemon server/server.js",
+    "test": "mocha --compilers js:babel-register tests/",
     "posttest": "npm run lint"
   },
   "repository": {
@@ -21,8 +21,16 @@
     "url": "https://github.com/hexlet-volunteers/interviews/issues"
   },
   "homepage": "https://github.com/hexlet-volunteers/interviews#readme",
+  "dependencies": {
+    "express": "^4.13.4",
+    "morgan": "^1.7.0"
+  },
   "devDependencies": {
     "eslint": "^2.2.0",
-    "eslint-config-airbnb": "^6.0.2"
+    "eslint-config-airbnb": "^6.0.2",
+    "chai": "^3.5.0",
+    "mocha": "^2.4.5",
+    "nodemon": "^1.9.1",
+    "supertest": "^1.2.0"
   }
 }
