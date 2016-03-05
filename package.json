@@ -6,7 +6,8 @@
     "lint": "eslint server tests",
     "flow:start": "flow start",
     "flow:stop": "flow stop",
-    "test": "mocha --compilers js:babel-register tests/ && flow check",
+    "pretest": "flow check",
+    "test": "mocha --compilers js:babel-register tests/",
     "posttest": "npm run lint",
     "start": "nodemon --exec babel-node server/"
   },
