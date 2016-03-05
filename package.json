@@ -26,10 +26,7 @@
     "express": "^4.13.4",
     "mincer": "^1.4.1",
     "morgan": "^1.7.0",
-    "postcss-cssnext": "^2.4.0",
-    "postcss-middleware": "^1.0.0",
-    "postcss-scss": "^0.1.6",
-    "precss": "^1.4.0"
+    "path": "^0.12.7"
   },
   "devDependencies": {
     "chai": "^3.5.0",
