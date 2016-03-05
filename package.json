@@ -26,8 +26,7 @@
     "bootstrap": "^4.0.0-alpha.2",
     "express": "^4.13.4",
     "mincer": "^1.4.1",
-    "morgan": "^1.7.0",
-    "path": "^0.12.7"
+    "morgan": "^1.7.0"
   },
   "devDependencies": {
     "chai": "^3.5.0",
