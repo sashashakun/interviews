@@ -16,6 +16,12 @@ environment.appendPath('node_modules');
 
 app.use('/assets', mincer.createServer(environment));
 
+if (process.env.NODE_ENV == "production") {
+  environment.cache = new Mincer.FileStore(path.join(__dirname, "cache"));
+  environment.jsCompressor  = 'uglify';
+  environment.cssCompressor = 'csswring';
+  environment = environment.index;
+}
 
 app.get('/', (req, res) => {
   res.render('index');
