@@ -22,12 +22,11 @@
   },
   "homepage": "https://github.com/hexlet-volunteers/interviews#readme",
   "dependencies": {
+    "autoprefixer": "^6.3.3",
+    "bootstrap": "^4.0.0-alpha.2",
     "express": "^4.13.4",
-    "morgan": "^1.7.0",
-    "postcss-cssnext": "^2.4.0",
-    "postcss-middleware": "^1.0.0",
-    "postcss-scss": "^0.1.6",
-    "precss": "^1.4.0"
+    "mincer": "^1.4.1",
+    "morgan": "^1.7.0"
   },
   "devDependencies": {
     "chai": "^3.5.0",
