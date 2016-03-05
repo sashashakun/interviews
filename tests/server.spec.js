@@ -16,7 +16,7 @@ describe('basic', () => {
 
   it('should return styles', done => {
     request(server)
-      .get('/css/styles.css')
+      .get('/assets/styles.css')
       .expect(200, done);
   });
 });
