@@ -23,7 +23,11 @@
   "homepage": "https://github.com/hexlet-volunteers/interviews#readme",
   "dependencies": {
     "express": "^4.13.4",
-    "morgan": "^1.7.0"
+    "morgan": "^1.7.0",
+    "postcss-cssnext": "^2.4.0",
+    "postcss-middleware": "^1.0.0",
+    "postcss-scss": "^0.1.6",
+    "precss": "^1.4.0"
   },
   "devDependencies": {
     "chai": "^3.5.0",
