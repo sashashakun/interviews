@@ -8,7 +8,7 @@ describe('basic', () => {
       .expect(200, done);
   });
 
-  it('should send 404 if type to get unknown page', done => {
+  it('should send 404 if try to get unknown page', done => {
     request(server)
       .get('/not-found')
       .expect(404, done);
