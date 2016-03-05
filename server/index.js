@@ -1,3 +1,5 @@
+// @flow
+
 import express from 'express';
 import morgan from 'morgan';
 import mincer from 'mincer';

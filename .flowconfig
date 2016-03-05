@@ -1,0 +1,6 @@
+[include]
+server/
+tests/
+
+[libs]
+.interfaces/
