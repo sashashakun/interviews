@@ -1,0 +1,11 @@
+[ignore]
+node_modules/
+
+[include]
+server/
+tests/
+
+[libs]
+.interfaces/
+
+[options]
