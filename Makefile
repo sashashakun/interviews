@@ -2,7 +2,7 @@ install:
 		npm install
 
 start:
-		npm start
+		npm run dev
 
 test:
 		npm test
