@@ -5,7 +5,9 @@ import morgan from 'morgan';
 import mincer from 'mincer';
 import path from 'path';
 import Router from 'named-routes';
+import debug from 'debug';
 
+const debugServer = debug('interview:server');
 const app = express();
 app.set('view engine', 'jade');
 app.use(morgan('dev'));
@@ -39,9 +41,9 @@ app.get('/', 'home', (req, res) => {
 const port = process.env.PORT || 3000;
 const server = app.listen(port, err => {
   if (err) {
-    console.log(err);
+    debugServer(err);
   }
-  console.log(`Started on http://localhost:${port}`);
+  debugServer(`Started on http://localhost:${port}`);
 });
 
 export default server;
