@@ -28,8 +28,10 @@
     "autoprefixer": "^6.3.3",
     "bootstrap": "^4.0.0-alpha.2",
     "express": "^4.13.4",
+    "jquery": "^2.2.1",
     "mincer": "^1.4.1",
     "morgan": "^1.7.0",
+    "tether": "^1.2.0",
     "named-routes": "^2.0.3"
   },
   "devDependencies": {

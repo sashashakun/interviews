@@ -16,6 +16,7 @@ let environment = new mincer.Environment();
 environment.enable('source_maps');
 environment.enable('autoprefixer');
 environment.appendPath('public/css');
+environment.appendPath('public/js');
 environment.appendPath('node_modules');
 
 app.use('/assets', mincer.createServer(environment));
