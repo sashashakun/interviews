@@ -5,7 +5,7 @@ import 'babel-polyfill';
 import _ from 'lodash';
 import assert from 'assert';
 import sinon from 'sinon';
-import sequelize from '../server/db';
+import sequelize from '../db';
 
 describe('create user methods', () => {
   it('should create sequelize user model with applicant data', done => {

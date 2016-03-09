@@ -1,6 +1,8 @@
 [include]
-server/
 tests/
+routes/
+helpers/
+db/
 
 [libs]
 .interfaces/
