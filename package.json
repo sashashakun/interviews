@@ -9,7 +9,7 @@
     "pretest": "flow check",
     "test": "mocha --compilers js:babel-register tests/",
     "posttest": "npm run lint",
-    "start" : "node app.js",
+    "start": "node app.js",
     "dev": "nodemon app.js"
   },
   "repository": {
@@ -45,9 +45,10 @@
     "jade": "^1.11.0"
   },
   "devDependencies": {
-    "chai": "^3.5.0",
-    "eslint": "~2.2.0",
     "babel-eslint": "^5.0.0",
+    "chai": "^3.5.0",
+    "csswring": "^4.2.1",
+    "eslint": "~2.2.0",
     "eslint-config-airbnb": "^6.0.2",
     "flow-bin": "^0.22.1",
     "mocha": "^2.4.5",
