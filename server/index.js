@@ -7,6 +7,8 @@ import path from 'path';
 import Router from 'named-routes';
 import debug from 'debug';
 
+import sequelize from './db';
+
 const debugServer = debug('interview:server');
 const app = express();
 app.set('view engine', 'jade');
@@ -36,6 +38,10 @@ router.registerAppHelpers(app);
 
 app.get('/', 'home', (req, res) => {
   res.render('index');
+});
+
+sequelize.sync({ force: true }).then(() => {
+  debugServer('connected to database');
 });
 
 const port = process.env.PORT || 3000;
