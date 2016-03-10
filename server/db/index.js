@@ -21,7 +21,7 @@ const sequelize = new Sequelize(connectionString, {
   },
 });
 
-const models = fs.readdirSync(modelsPath)
+fs.readdirSync(modelsPath)
   .forEach(model => sequelize.import(path.join(modelsPath, model)));
 
 export default sequelize;
