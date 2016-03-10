@@ -2,15 +2,17 @@
 
 import fs from 'fs';
 import path from 'path';
+import debug from 'debug';
 import Sequelize from 'sequelize';
 
 const connectionString = process.env.DATABASE_URL;
 const modelsPath = path.resolve(__dirname, 'models');
+const debugDatabase = debug('interview:db');
 
 const sequelize = new Sequelize(connectionString, {
   // specify logging function
   // or false to disable logging
-  logging: console.log.bind(console),
+  logging: debugDatabase,
 
   define: {
     underscored: true,

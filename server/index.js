@@ -41,7 +41,7 @@ app.get('/', 'home', (req, res) => {
 });
 
 sequelize.sync({ force: true }).then(() => {
-  console.log('connected to database');
+  debugServer('connected to database');
 });
 
 const port = process.env.PORT || 3000;
