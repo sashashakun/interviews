@@ -7,10 +7,10 @@
     "flow:start": "flow start",
     "flow:stop": "flow stop",
     "pretest": "flow check",
-    "test": "mocha --compilers js:babel-register tests/",
+    "test": "DEBUG=interview:* mocha --compilers js:babel-register tests/",
     "posttest": "npm run lint",
-    "start": "node app.js",
-    "dev": "nodemon app.js"
+    "start" : "DEBUG=interview:* node app.js",
+    "dev": "DEBUG=interview:* nodemon app.js"
   },
   "repository": {
     "type": "git",
@@ -28,6 +28,7 @@
   "dependencies": {
     "autoprefixer": "^6.3.3",
     "bootstrap": "^4.0.0-alpha.2",
+    "debug": "^2.2.0",
     "express": "^4.13.4",
     "jquery": "^2.2.1",
     "mincer": "^1.4.1",
