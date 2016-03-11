@@ -7,15 +7,16 @@ import path from 'path';
 import Router from 'named-routes';
 import debug from 'debug';
 // import jwt from 'express-jwt';
+import bodyParser from 'body-parser';
 
 import sequelize from './db';
 
-
 const debugServer = debug('interview:server');
+const debugError = debug('interview:error');
 const app = express();
 app.set('view engine', 'jade');
 app.use(morgan('dev'));
-
+app.use(bodyParser.urlencoded({ extended: false }));
 
 mincer.logger.use(console);
 
@@ -44,11 +45,29 @@ app.get('/', 'home', (req, res) => {
   res.render('index');
 });
 
-app.post('/add', 'add', (req, res) => {
-  res.render('index');
+app.post('/add-interviewer', 'add-interviewer', async (req, res) => {
+  debugServer('POST /add-interviewer', req.body);
+
+  await sequelize.models.user.createInterviewer(req.body);
+
+  res.redirect(app.namedRoutes.build('home'));
 });
 
-sequelize.sync({ force: true }).then(() => {
+app.post('/add-applicant', 'add-applicant', async (req, res) => {
+  debugServer('POST /add-interviewer', req.body);
+
+  await sequelize.models.user.createApplicant(req.body);
+
+  res.redirect(app.namedRoutes.build('home'));
+});
+
+app.use((err, req, res, next) => {
+  debugError(err);
+  res.status(500).send();
+  next();
+});
+
+sequelize.sync().then(() => {
   debugServer('connected to database');
 });
 

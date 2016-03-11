@@ -16,7 +16,6 @@ const sequelize = new Sequelize(connectionString, {
 
   define: {
     underscored: true,
-    freezeTableName: true,
     charset: 'utf8',
     collate: 'utf8_general_ci',
     timestamps: true,

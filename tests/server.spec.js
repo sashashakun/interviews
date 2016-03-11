@@ -1,5 +1,6 @@
 // @flow
 
+import 'babel-polyfill';
 import request from 'supertest';
 import server from '../server';
 
