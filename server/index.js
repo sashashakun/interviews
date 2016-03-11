@@ -6,13 +6,16 @@ import mincer from 'mincer';
 import path from 'path';
 import Router from 'named-routes';
 import debug from 'debug';
+// import jwt from 'express-jwt';
 
 import sequelize from './db';
+
 
 const debugServer = debug('interview:server');
 const app = express();
 app.set('view engine', 'jade');
 app.use(morgan('dev'));
+
 
 mincer.logger.use(console);
 
@@ -20,6 +23,7 @@ let environment = new mincer.Environment();
 environment.enable('source_maps');
 environment.enable('autoprefixer');
 environment.appendPath('public/css');
+environment.appendPath('public/img');
 environment.appendPath('public/js');
 environment.appendPath('node_modules');
 
@@ -37,6 +41,10 @@ router.extendExpress(app);
 router.registerAppHelpers(app);
 
 app.get('/', 'home', (req, res) => {
+  res.render('index');
+});
+
+app.post('/add', 'add', (req, res) => {
   res.render('index');
 });
 

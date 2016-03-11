@@ -7,15 +7,21 @@ block content
         .masthead.clearfix
           .inner
             h3.masthead-brand 
-              a(href='https://hexlet.ru') Hexlet
+               a(href='https://ru.hexlet.io') Hexlet
+            //- button#btn-login Login
+            //- button#btn-logout Logout
+            p.head-title Добро пожаловать 
+              span#name
+              span#btn-logout
+            
         .inner.cover
-          h1.cover-heading Job interview online.
+          h1.cover-heading Собеседования программистов в прямом эфире!
           p.lead
           div.btn-group.row
             p.lead.col-md-6
-              button.btn.btn-primary(data-toggle='modal', data-target='.bd-example-modal-1') Хочу собеседовать
+              button.btn.btn-secondary.btn-lg(data-toggle='modal', data-target='.bd-example-modal-1') Хочу собеседовать
             p.lead.col-md-6
-              button.btn.btn-primary(data-toggle='modal', data-target='.bd-example-modal-2') Хочу собеседоваться
+              button.btn.btn-secondary.btn-lg(data-toggle='modal', data-target='.bd-example-modal-2') Хочу собеседоваться
           .modal.fade.bd-example-modal-1(tabindex='-1', role='dialog', aria-labelledby='myLargeModalLabel', aria-hidden='true')
             .modal-dialog.modal-md
               .modal-content
@@ -27,17 +33,19 @@ block content
                   .container
                     .row
                       .col-xs-12
-                        form#new_user.simple_form.new_user(novalidate='novalidate', action='/u?from=https%3A%2F%2Fru.hexlet.io%2Fsubscription%2Fnew%3FcurrentPlan%3Dmonthly', accept-charset='UTF-8', method='post')
-                          input(name='utf8', type='hidden', value='✓')
-                          input(type='hidden', name='authenticity_token')
+                        form#new_user.simple_form.new_user(action='/add', accept-charset='UTF-8', method='post')
+                          //- input(name='utf8', type='hidden', value='✓')
+                          //- input(type='hidden', name='authenticity_token')
                           .form-group.string.required.user_first_name
-                            input#user_first_name.string.required.form-control(autofocus='autofocus', placeholder='Город', type='text', name='user[city]')
+                            input#user_first_name.string.required.form-control(autofocus='autofocus', placeholder='Город', type='text', name='user[city]' required)
                           .form-group.string.required.user_last_name
-                            input#user_last_name.string.required.form-control(placeholder='Должность', type='text', name='user[position]')
+                            input#user_last_name.string.required.form-control(placeholder='Должность', type='text', name='user[position]' required)
                           .form-group.email.optional.user_email
-                            input#user_email.string.email.optional.form-control(placeholder='Место работы', type='text', name='user[company]')
+                            input#user_email.string.email.optional.form-control(placeholder='Место работы', type='text', name='user[company]' required)
+                          .form-group.email.optional.user_email
+                            input#user_email.string.email.optional.form-control(placeholder='Языки', type='text', name='user[lang]' required)
                           hr
-                          input.btn.btn-default.btn-success.btn-lg.btn-block(type='submit', name='commit', value='Вход через Github')
+                          input.btn.btn-default.btn-success.btn-lg.btn-block(type='submit', name='commit', value='Отправить')
           .modal.fade.bd-example-modal-2(tabindex='-1', role='dialog', aria-labelledby='myLargeModalLabel', aria-hidden='true')
             .modal-dialog.modal-md
               .modal-content
@@ -49,14 +57,12 @@ block content
                   .container
                     .row
                       .col-xs-12
-                        form#new_user.simple_form.new_user(novalidate='novalidate', action='/u?from=https%3A%2F%2Fru.hexlet.io%2Fsubscription%2Fnew%3FcurrentPlan%3Dmonthly', accept-charset='UTF-8', method='post')
-                          input(name='utf8', type='hidden', value='✓')
-                          input(type='hidden', name='authenticity_token')
+                        form#new_user.simple_form.new_user(action='/add', accept-charset='UTF-8', method='post')
                           .form-group.string.required.user_first_name
-                            input#user_first_name.string.required.form-control(autofocus='autofocus', placeholder='Город', type='text', name='user[city]')
+                            input#user_first_name.string.required.form-control(autofocus='autofocus', placeholder='Город', type='text', name='user[city]' required)
                           .form-group.string.required.user_last_name
-                            input#user_last_name.string.required.form-control(placeholder='Языки', type='text', name='user[langs]')
+                            input#user_last_name.string.required.form-control(placeholder='Языки', type='text', name='user[langs]' required)
                           hr
-                          input.btn.btn-default.btn-success.btn-lg.btn-block(type='submit', name='commit', value='Вход через Github')
+                          input.btn.btn-default.btn-success.btn-lg.btn-block(type='submit', name='commit', value='Отправить')
         
         .mastfoot

@@ -9,7 +9,7 @@
     "pretest": "flow check",
     "test": "DEBUG=interview:* mocha --compilers js:babel-register tests/",
     "posttest": "npm run lint",
-    "start" : "DEBUG=interview:* node app.js",
+    "start": "DEBUG=interview:* node app.js",
     "dev": "DEBUG=interview:* nodemon app.js"
   },
   "repository": {
@@ -46,7 +46,8 @@
     "named-routes": "^2.0.3",
     "pg": "^4.5.1",
     "sequelize": "^3.19.3",
-    "tether": "^1.2.0"
+    "tether": "^1.2.0",
+    "express-jwt": "^3.3.0"
   },
   "devDependencies": {
     "babel-eslint": "^5.0.0",

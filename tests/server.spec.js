@@ -21,4 +21,10 @@ describe('basic', () => {
       .get('/assets/styles.css')
       .expect(200, done);
   });
+
+  it('should return scripts', done => {
+    request(server)
+      .get('/assets/index.js')
+      .expect(200, done);
+  });
 });
