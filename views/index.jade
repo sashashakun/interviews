@@ -33,19 +33,19 @@ block content
                   .container
                     .row
                       .col-xs-12
-                        form#new_user.simple_form.new_user(action='/add', accept-charset='UTF-8', method='post')
+                        form#new_user.simple_form.new_user(action=url('add-interviewer'), accept-charset='UTF-8', method='post')
                           //- input(name='utf8', type='hidden', value='✓')
                           //- input(type='hidden', name='authenticity_token')
                           .form-group.string.required.user_first_name
-                            input#user_first_name.string.required.form-control(autofocus='autofocus', placeholder='Город', type='text', name='user[city]' required)
+                            input#user_first_name.string.required.form-control(autofocus='autofocus', placeholder='Город', type='text', name='city' required)
                           .form-group.string.required.user_last_name
-                            input#user_last_name.string.required.form-control(placeholder='Должность', type='text', name='user[position]' required)
+                            input#user_last_name.string.required.form-control(placeholder='Должность', type='text', name='position' required)
                           .form-group.email.optional.user_email
-                            input#user_email.string.email.optional.form-control(placeholder='Место работы', type='text', name='user[company]' required)
+                            input#user_email.string.email.optional.form-control(placeholder='Место работы', type='text', name='company' required)
                           .form-group.email.optional.user_email
-                            input#user_email.string.email.optional.form-control(placeholder='Языки', type='text', name='user[lang]' required)
+                            input#user_email.string.email.optional.form-control(placeholder='Языки', type='text', name='langs' required)
                           hr
-                          input.btn.btn-default.btn-success.btn-lg.btn-block(type='submit', name='commit', value='Отправить')
+                          input.btn.btn-default.btn-success.btn-lg.btn-block(type='submit', value='Отправить')
           .modal.fade.bd-example-modal-2(tabindex='-1', role='dialog', aria-labelledby='myLargeModalLabel', aria-hidden='true')
             .modal-dialog.modal-md
               .modal-content
@@ -57,12 +57,12 @@ block content
                   .container
                     .row
                       .col-xs-12
-                        form#new_user.simple_form.new_user(action='/add', accept-charset='UTF-8', method='post')
+                        form#new_user.simple_form.new_user(action=url('add-applicant'), accept-charset='UTF-8', method='post')
                           .form-group.string.required.user_first_name
-                            input#user_first_name.string.required.form-control(autofocus='autofocus', placeholder='Город', type='text', name='user[city]' required)
+                            input#user_first_name.string.required.form-control(autofocus='autofocus', placeholder='Город', type='text', name='city' required)
                           .form-group.string.required.user_last_name
-                            input#user_last_name.string.required.form-control(placeholder='Языки', type='text', name='user[langs]' required)
+                            input#user_last_name.string.required.form-control(placeholder='Языки', type='text', name='langs' required)
                           hr
-                          input.btn.btn-default.btn-success.btn-lg.btn-block(type='submit', name='commit', value='Отправить')
+                          input.btn.btn-default.btn-success.btn-lg.btn-block(type='submit', value='Отправить')
         
         .mastfoot
