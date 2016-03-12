@@ -17,7 +17,7 @@
 5. cd /vagrant
 6. make install
 7. make start
-7. localhost:3000
+8. localhost:3000
 ```
 
 
