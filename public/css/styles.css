@@ -14,16 +14,6 @@
    text-decoration: none;
  }
 
- /* Custom default button */
- /*.btn-secondary,
- .btn-secondary:hover,
- .btn-secondary:focus {
-   color: #333;
-   background-color: #fff;
-   border: .05rem solid #fff;
-   text-shadow: none; /* Prevent inheritance from `body` */
- /*}*/
-
 
  /*
   * Base structure
@@ -32,7 +22,7 @@
  html,
  body {
    height: 100%;
-   background: url('bg.jpg') #fff top left no-repeat;
+   background: url('https://res.cloudinary.com/dturhmqu5/image/upload/c_scale,w_1920/v1457747421/bg_lq02th.jpg') #fff top left no-repeat;
    background-size: cover;
  }
  body {
