@@ -9,10 +9,19 @@ import debug from 'debug';
 import bodyParser from 'body-parser';
 
 import sequelize from './db';
+import passport from 'passport';
+import configurePassport from './auth/github';
+import saveFormData from './hooks';
 
 const debugServer = debug('interview:server');
 const debugError = debug('interview:error');
 const app = express();
+
+const passportGithubEnv = {
+  github_client_id: process.env.GITHUB_CLIENT_ID || 'hexlet',
+  github_client_secret: process.env.GITHUB_CLIENT_SECRET || 'LISP',
+  github_callback: process.env.GITHUB_CALLBACK || 'http://127.0.0.1/login/callback',
+};
 
 app.set('view engine', 'jade');
 app.use(morgan('dev'));
@@ -27,7 +36,16 @@ environment.appendPath('public/css');
 environment.appendPath('public/js');
 environment.appendPath('node_modules');
 
+app.use(require('express-session')({ secret: 'LISPy cat',
+                                     resave: true,
+                                     saveUninitialized: true }));
 app.use('/assets', mincer.createServer(environment));
+
+process.nextTick(() => {
+  configurePassport(passportGithubEnv);
+  app.use(passport.initialize());
+  app.use(passport.session());
+});
 
 if (process.env.NODE_ENV === 'production') {
   environment.cache = new mincer.FileStore(path.join(__dirname, 'cache'));
@@ -44,21 +62,34 @@ app.get('/', 'home', (req, res) => {
   res.render('index');
 });
 
-app.post('/add-interviewer', 'add-interviewer', async (req, res) => {
-  debugServer('POST /add-interviewer', req.body);
+async function saveToDb(data, reqType) {
+  if (reqType === 'add-applicant') {
+    debugServer('POST /add-applicant', data);
+    await sequelize.models.user.createApplicant(data);
+  } else if (reqType === 'add-interviewer') {
+    debugServer('POST /add-interviewer', data);
+    await sequelize.models.user.createInterviewer(data);
+  }
+}
 
-  await sequelize.models.user.createInterviewer(req.body);
+app.get('/login/callback', 'callback', passport.authenticate('github', { failureRedirect: '/' }),
+       (req, res) => {
+         const data = req.session.initBody;
+         const type = req.session.requestType;
 
-  res.redirect(app.namedRoutes.build('home'));
-});
+         return process.nextTick(() => {
+           if (data) {
+             saveToDb(data, type);
+           } else {
+             return res.send('Something bad just happened');
+           }
+           return res.redirect(app.namedRoutes.build('home'));
+         });
+       }
+);
 
-app.post('/add-applicant', 'add-applicant', async (req, res) => {
-  debugServer('POST /add-interviewer', req.body);
-
-  await sequelize.models.user.createApplicant(req.body);
-
-  res.redirect(app.namedRoutes.build('home'));
-});
+app.post('/add-interviewer', 'add-interviewer', saveFormData, passport.authenticate('github'));
+app.post('/add-applicant', 'add-applicant', saveFormData, passport.authenticate('github'));
 
 app.use((err, req, res, next) => {
   debugError(err);
