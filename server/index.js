@@ -41,11 +41,9 @@ app.use(require('express-session')({ secret: 'LISPy cat',
                                      saveUninitialized: true }));
 app.use('/assets', mincer.createServer(environment));
 
-process.nextTick(() => {
-  configurePassport(passportGithubEnv);
-  app.use(passport.initialize());
-  app.use(passport.session());
-});
+configurePassport(passportGithubEnv);
+app.use(passport.initialize());
+app.use(passport.session());
 
 if (process.env.NODE_ENV === 'production') {
   environment.cache = new mincer.FileStore(path.join(__dirname, 'cache'));
@@ -65,10 +63,12 @@ app.get('/', 'home', (req, res) => {
 async function saveToDb(data, reqType) {
   if (reqType === 'add-applicant') {
     debugServer('POST /add-applicant', data);
-    await sequelize.models.user.createApplicant(data);
+    const res = await sequelize.models.user.createApplicant(data);
+    debugServer('Result', res);
   } else if (reqType === 'add-interviewer') {
     debugServer('POST /add-interviewer', data);
-    await sequelize.models.user.createInterviewer(data);
+    const res = await sequelize.models.user.createInterviewer(data);
+    debugServer('Result', res);
   }
 }
 
