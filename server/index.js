@@ -76,6 +76,7 @@ app.get('/login/callback', 'callback', passport.authenticate('github', { failure
        (req, res) => {
          const data = req.session.initBody;
          const type = req.session.requestType;
+         data.email = req.user.emails[0].value;
 
          return process.nextTick(() => {
            if (data) {
