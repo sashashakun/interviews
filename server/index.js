@@ -76,7 +76,9 @@ app.get('/login/callback', 'callback', passport.authenticate('github', { failure
        (req, res) => {
          const data = req.session.initBody;
          const type = req.session.requestType;
-         data.email = req.user.emails[0].value;
+         data.email = (req.user.emails && req.user.emails[0] && req.user.emails[0].value)
+                      ||
+                      'no public email';
 
          return process.nextTick(() => {
            if (data) {
