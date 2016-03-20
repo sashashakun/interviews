@@ -2,7 +2,7 @@
 
 import 'babel-polyfill';
 import request from 'supertest';
-import server from '../server';
+import server from '../app';
 
 describe('basic', () => {
   it('should have / page', done => {
@@ -17,9 +17,10 @@ describe('basic', () => {
       .expect(404, done);
   });
 
-  it('should return styles', done => {
+  it('should return styles', function (done) {
+    this.timeout(10000);
     request(server)
-      .get('/assets/styles.css')
+      .get('/assets/style.css')
       .expect(200, done);
   });
 
