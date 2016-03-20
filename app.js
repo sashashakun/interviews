@@ -33,6 +33,7 @@ app.set('view engine', 'jade');
 //logging setup
 app.use(morgan('dev'));
 mincer.logger.use(debug('interview:mincer'));
+mincer.MacroProcessor.configure('.css');
 
 //assets pipeline setup
 let environment = new mincer.Environment();
@@ -40,7 +41,17 @@ environment.enable('source_maps');
 environment.enable('autoprefixer');
 environment.appendPath('public/stylesheets');
 environment.appendPath('public/javascripts');
+environment.appendPath('public/images');
 environment.appendPath('node_modules');
+
+environment.ContextClass.defineAssetPath((pathname, options) => {
+  const asset = environment.findAsset(pathname, options);
+  if (!asset) {
+    throw new Error(`File ${pathname} not found`);
+  }
+  return `/assets/${asset.digestPath}`;
+});
+
 app.use('/assets', mincer.createServer(environment));
 
 app.use(require('express-session')({
