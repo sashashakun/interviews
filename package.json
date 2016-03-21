@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "description": "",
   "scripts": {
-    "lint": "eslint tests routes helpers",
+    "lint": "eslint app.js tests routes helpers",
     "flow:start": "flow start",
     "flow:stop": "flow stop",
     "pretest": "flow check",
