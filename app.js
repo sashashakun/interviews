@@ -30,12 +30,12 @@ const passportGithubEnv = {
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
-//logging setup
+// logging setup
 app.use(morgan('dev'));
 mincer.logger.use(debug('interview:mincer'));
 mincer.MacroProcessor.configure('.css');
 
-//assets pipeline setup
+// assets pipeline setup
 let environment = new mincer.Environment();
 environment.enable('source_maps');
 environment.enable('autoprefixer');
@@ -57,7 +57,7 @@ app.use('/assets', mincer.createServer(environment));
 app.use(require('express-session')({
   secret: 'LISPy cat',
   resave: true,
-  saveUninitialized: true
+  saveUninitialized: true,
 }));
 
 configurePassport(passportGithubEnv);
@@ -72,16 +72,16 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-//db setup
+// db setup
 const force = process.env.NODE_ENV !== 'production';
 sequelize.sync({ force }).then(() => {
   debugServer('connected to database');
 });
 
-//routing setup
+// routing setup
 const router = new Router();
 router.extendExpress(app);
 router.registerAppHelpers(app);
@@ -101,7 +101,7 @@ async function saveToDb(data, reqType) {
   }
 }
 
-app.get('/login/callback', 'callback', passport.authenticate('github', {failureRedirect: '/'}),
+app.get('/login/callback', 'callback', passport.authenticate('github', { failureRedirect: '/' }),
   (req, res) => {
     const data = req.session.initBody;
     const type = req.session.requestType;
@@ -128,20 +128,20 @@ app.post('/add-applicant', 'add-applicant', saveFormData, passport.authenticate(
 app.use((req, res, next) => {
   const errorInfo = {
     error: new Error('Not found'),
-    status: 404
+    status: 404,
   };
   next(errorInfo);
 });
 
 // development error handler
 // will print stacktrace
-app.use(({error, status}, req, res, next) => {
+app.use(({ error, status }, req, res) => {
   debugError(error);
   res.status(status || 500);
   res.render('error', {
     message: error.message,
-    status: status,
-    error: error
+    status,
+    error,
   });
 });
 
@@ -149,13 +149,13 @@ app.use(({error, status}, req, res, next) => {
 // production error handler
 // no stacktraces leaked to user
 if (app.get('env') === 'production') {
-  app.use(({error, status}, req, res, next) => {
+  app.use(({ error, status }, req, res) => {
     debugError(error);
     res.status(status || 500);
     res.render('error', {
       message: error.message,
-      status: status,
-      error: {}
+      status,
+      error: {},
     });
   });
 }
