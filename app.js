@@ -65,7 +65,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
 
 //db setup
-const force = process.env.NODE_ENV !== ‘production';
+const force = process.env.NODE_ENV !== 'production';
 sequelize.sync({ force }).then(() => {
   debugServer('connected to database');
 });
