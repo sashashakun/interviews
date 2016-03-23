@@ -8,17 +8,14 @@
 [![Build Status](https://travis-ci.org/hexlet-volunteers/interviews.svg?branch=master)](https://travis-ci.org/hexlet-volunteers/interviews)
 
 
-## Local setup
-```
-1. Fork project
-2. git clone https://github.com/YOUR_USER_NAME/interviews.git
-3. vagrant up
-4. vagrant ssh
-5. cd /vagrant
-6. make install
-7. make start
-8. localhost:3000
-```
+## What is this?
 
+Small app for collect data from people, who want to take part in programming job interview as interviewer or applicant.
 
+## What for?
 
+Besides the above, this is something like testing app, where contibutors can practice their web development skills, work with db, backend, frontend, deploy, and other.
+
+## Want to contribute?
+
+Great! It's easy, read our [contribution guide](CONTRIBUTING.md)
