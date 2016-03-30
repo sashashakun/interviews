@@ -3,14 +3,14 @@
 import app from './app';
 import debug from 'debug';
 import http from 'http';
-import {normalizePort} from './helpers/network'
+import { normalizePort } from './helpers/network';
 
 const debugServer = debug('interview:server');
 
-var port = normalizePort(process.env.PORT || '3000');
+const port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
 
-var server = http.createServer(app);
+const server = http.createServer(app);
 server.listen(port);
 
 server.on('error', error => {
@@ -18,7 +18,7 @@ server.on('error', error => {
     throw error;
   }
 
-  var bind = typeof port === 'string'
+  const bind = typeof port === 'string'
     ? `Pipe ${port}`
     : `Port ${port}`;
 
@@ -37,8 +37,8 @@ server.on('error', error => {
 });
 
 server.on('listening', () => {
-  var addr = server.address();
-  var bind = typeof addr === 'string'
+  const addr = server.address();
+  const bind = typeof addr === 'string'
     ? `pipe ${addr}`
     : `port ${addr.port}`;
   debugServer('Listening on ' + bind);
