@@ -23,6 +23,7 @@ export default function configurePassport(env: EnvContainer) {
             clientSecret: env.github_client_secret,
             callbackURL: env.github_callback,
             passReqToCallback: true,
+            scope: 'user:email',
           },
         (req, accessToken, refreshToken, profile, done) => {
           if (!accessToken) {
