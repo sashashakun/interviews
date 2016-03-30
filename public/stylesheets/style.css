@@ -177,3 +177,7 @@ body {
     width: 42rem;
   }
 }
+
+.text-muted {
+  text-shadow: none;
+}
