@@ -19,3 +19,5 @@ Besides the above, this is something like testing app, where contibutors can pra
 ## Want to contribute?
 
 Great! It's easy, read our [contribution guide](CONTRIBUTING.md)
+
+test
